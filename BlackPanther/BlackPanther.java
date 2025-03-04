@@ -1,5 +1,6 @@
 import dev.robocode.tankroyale.botapi.*;
 import dev.robocode.tankroyale.botapi.events.*;
+import java.awt.Color;
 
 // ------------------------------------------------------------------
 // BlackPanther
@@ -20,6 +21,13 @@ public class BlackPanther extends Bot {
     // Constructor, which loads the bot config file
     BlackPanther() {
         super(BotInfo.fromFile("BlackPanther.json"));
+        // Set the colors for the bot
+        setBodyColor(Color.ORANGE);
+        setGunColor(Color.ORANGE);
+        setRadarColor(Color.RED);
+        setScanColor(Color.RED);
+        setBulletColor(Color.RED);
+    
     }
 
     // Called when a new round is started -> initialize and do some movement
