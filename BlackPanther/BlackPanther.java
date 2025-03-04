@@ -28,8 +28,8 @@ public class BlackPanther extends Bot {
         // Repeat while the bot is running
         while (isRunning()) {
             forward(100);
-            turnGunRight(360);
-            back(100);
+            turnLeft(90);
+            forward(10);
             turnGunRight(360);
 
         }
