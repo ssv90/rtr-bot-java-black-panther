@@ -40,15 +40,20 @@ public class BlackPanther extends Bot {
         while (isRunning()) {
             //forward(200);
             turnGunRight(360);
-            back(200);
-            turnLeft(10);
-            back(50);
-            turnGunRight(180);
-            turnRight(10);
-            back(200);
-            //turnGunRight(360);
+            moveRandomly();
 
         }
+    }
+
+    private void moveRandomly() {
+        int moveDistance = random.nextInt(200) + 100;
+        int turnAngle = random.nextInt(90) - 45;
+        if (random.nextBoolean()) {
+            forward(moveDistance);
+        } else {
+            back(moveDistance);
+        }
+        turnRight(turnAngle);
     }
 
     // We saw another bot -> fire!
@@ -65,6 +70,7 @@ public class BlackPanther extends Bot {
 
         // Turn 90 degrees to the bullet direction based on the bearing
        turnLeft(90 - bearing);
+       moveRandomly();
     }
 
     @Override
@@ -74,5 +80,6 @@ public class BlackPanther extends Bot {
 
         // Turn 90 degrees to the bullet direction based on the bearing
        turnRight(90);
+       moveRandomly();
     }
 }
