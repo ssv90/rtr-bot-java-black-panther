@@ -2,7 +2,7 @@ import dev.robocode.tankroyale.botapi.*;
 import dev.robocode.tankroyale.botapi.events.*;
 
 // ------------------------------------------------------------------
-// MyFirstBot
+// BlackPanther
 // ------------------------------------------------------------------
 // A sample bot original made for Robocode by Mathew Nelson.
 // Ported to Robocode Tank Royale by Flemming N. Larsen.
@@ -10,16 +10,16 @@ import dev.robocode.tankroyale.botapi.events.*;
 // Probably the first bot you will learn about.
 // Moves in a seesaw motion, and spins the gun around at each end.
 // ------------------------------------------------------------------
-public class MyFirstBot extends Bot {
+public class BlackPanther extends Bot {
 
     // The main method starts our bot
     public static void main(String[] args) {
-        new MyFirstBot().start();
+        new BlackPanther().start();
     }
 
     // Constructor, which loads the bot config file
-    MyFirstBot() {
-        super(BotInfo.fromFile("MyFirstBot.json"));
+    BlackPanther() {
+        super(BotInfo.fromFile("BlackPanther.json"));
     }
 
     // Called when a new round is started -> initialize and do some movement
