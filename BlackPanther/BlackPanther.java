@@ -38,10 +38,15 @@ public class BlackPanther extends Bot {
     public void run() {
         // Repeat while the bot is running
         while (isRunning()) {
-            forward(100);
-            turnLeft(90);
-            forward(10);
+            //forward(200);
             turnGunRight(360);
+            back(200);
+            turnLeft(10);
+            back(50);
+            turnGunRight(180);
+            turnRight(10);
+            back(200);
+            //turnGunRight(360);
 
         }
     }
@@ -49,7 +54,7 @@ public class BlackPanther extends Bot {
     // We saw another bot -> fire!
     @Override
     public void onScannedBot(ScannedBotEvent e) {
-        fire(2);
+        fire(1);
     }
 
     // We were hit by a bullet -> turn perpendicular to the bullet
@@ -59,10 +64,15 @@ public class BlackPanther extends Bot {
         var bearing = calcBearing(e.getBullet().getDirection());
 
         // Turn 90 degrees to the bullet direction based on the bearing
-       // turnLeft(90 - bearing);
+       turnLeft(90 - bearing);
+    }
 
-        back(60 + random.nextInt(40)); // Move back a random distance
-        turnLeft(60 - bearing + random.nextInt(40)); // Turn a random angle
-        forward(100 + random.nextInt(50)); // Move forward a random distance
+    @Override
+    public void onHitWall(HitWallEvent e) {
+        // Calculate the bearing to the direction of the bullet
+        back(50);
+
+        // Turn 90 degrees to the bullet direction based on the bearing
+       turnRight(90);
     }
 }
