@@ -39,7 +39,22 @@ public class BlackPanther extends Bot {
         // Repeat while the bot is running
         while (isRunning()) {
             //forward(200);
-            turnGunRight(360);
+            turnGunRight(45);
+            turnLeft(5);
+            turnGunRight(45);
+            turnLeft(5);
+            turnGunRight(45);
+            turnLeft(5);
+            turnGunRight(45);
+            turnLeft(5);
+            turnGunRight(45);
+            turnLeft(5);
+            turnGunRight(45);
+            turnLeft(5);
+            turnGunRight(45);
+            turnLeft(5);
+            turnGunRight(45);
+            turnLeft(5);
             moveRandomly();
 
         }
@@ -59,7 +74,8 @@ public class BlackPanther extends Bot {
     // We saw another bot -> fire!
     @Override
     public void onScannedBot(ScannedBotEvent e) {
-        fire(1);
+
+        fire(3);
     }
 
     // We were hit by a bullet -> turn perpendicular to the bullet
