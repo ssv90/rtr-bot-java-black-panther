@@ -1,6 +1,7 @@
 import dev.robocode.tankroyale.botapi.*;
 import dev.robocode.tankroyale.botapi.events.*;
 import java.awt.Color;
+import java.util.Random;
 
 // ------------------------------------------------------------------
 // BlackPanther
@@ -12,6 +13,8 @@ import java.awt.Color;
 // Moves in a seesaw motion, and spins the gun around at each end.
 // ------------------------------------------------------------------
 public class BlackPanther extends Bot {
+
+    private final Random random = new Random();
 
     // The main method starts our bot
     public static void main(String[] args) {
@@ -46,7 +49,7 @@ public class BlackPanther extends Bot {
     // We saw another bot -> fire!
     @Override
     public void onScannedBot(ScannedBotEvent e) {
-        fire(3);
+        fire(2);
     }
 
     // We were hit by a bullet -> turn perpendicular to the bullet
@@ -56,6 +59,10 @@ public class BlackPanther extends Bot {
         var bearing = calcBearing(e.getBullet().getDirection());
 
         // Turn 90 degrees to the bullet direction based on the bearing
-        turnLeft(90 - bearing);
+       // turnLeft(90 - bearing);
+
+        back(60 + random.nextInt(40)); // Move back a random distance
+        turnLeft(60 - bearing + random.nextInt(40)); // Turn a random angle
+        forward(100 + random.nextInt(50)); // Move forward a random distance
     }
 }
